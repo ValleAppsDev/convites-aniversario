@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aniversário de joao definitivo</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap');
+
+  :root{
+    --bg: hsl(19, 55%, 9%);
+    --bg-soft: hsl(19, 55%, 14%);
+    --card: hsl(19, 55%, 16%);
+    --gold: #E88A5E;
+    --blush: hsl(19, 70%, 72%);;
+    --cream: #F7EDEA;
+    --muted: #B9A8A6;
+  }
+
+  *{ box-sizing:border-box; margin:0; padding:0; }
+  html{ scroll-behavior:smooth; }
+
+  body{
+    background:
+      radial-gradient(circle at 15% -10%, rgba(232,138,94,0.10), transparent 40%),
+      radial-gradient(circle at 85% 10%, rgba(232,138,94,0.10), transparent 45%),
+      var(--bg);
+    color: var(--cream);
+    font-family: 'Inter', sans-serif;
+    min-height:100vh;
+  }
+
+  section{
+    max-width: 1040px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  .hero{
+    min-height: 92vh;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+
+  .eyebrow{
+    letter-spacing: 0.35em;
+    text-transform:uppercase;
+    font-size: 12px;
+    color: var(--gold);
+    margin-bottom: 26px;
+    animation: fadeUp 0.8s ease-out both;
+  }
+
+  h1{
+    font-family:'Fraunces', serif;
+    font-weight:700;
+    font-size: clamp(44px, 8vw, 88px);
+    line-height:1.02;
+    margin-bottom: 18px;
+    animation: fadeUp 0.8s ease-out 0.1s both;
+  }
+  h1 span{ font-style: italic; color: var(--blush); display:block; }
+
+  .hero-subtitle{
+    color: var(--muted);
+    font-size: 17px;
+    max-width: 480px;
+    margin: 0 auto 48px;
+    animation: fadeUp 0.8s ease-out 0.2s both;
+  }
+
+  @keyframes fadeUp{
+    from{ opacity:0; transform: translateY(18px); }
+    to{ opacity:1; transform: translateY(0); }
+  }
+
+  .countdown-wrap{
+    animation: fadeUp 0.8s ease-out 0.3s both;
+  }
+
+  .countdown-label{
+    font-size: 12px;
+    letter-spacing: 0.18em;
+    text-transform:uppercase;
+    color: var(--muted);
+    margin-bottom: 20px;
+  }
+
+  .countdown{
+    display:flex;
+    gap: 18px;
+    justify-content:center;
+    flex-wrap:wrap;
+  }
+
+  .count-block{
+    background: linear-gradient(160deg, var(--card), hsl(19, 55%, 9%));
+    border: 1px solid rgba(232,138,94,0.25);
+    border-radius: 14px;
+    padding: 22px 26px;
+    min-width: 92px;
+    box-shadow: 0 20px 40px -20px rgba(0,0,0,0.6);
+  }
+
+  .count-number{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    font-size: 40px;
+    color: var(--gold);
+    line-height:1;
+  }
+
+  .count-unit{
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform:uppercase;
+    color: var(--muted);
+    margin-top: 8px;
+  }
+
+  .divider{
+    display:flex;
+    align-items:center;
+    gap: 16px;
+    max-width: 1040px;
+    margin: 0 auto;
+    padding: 0 24px;
+    color: var(--gold);
+  }
+  .divider::before, .divider::after{
+    content:"";
+    flex:1;
+    height:1px;
+    background: rgba(247,241,231,0.15);
+  }
+
+  .details-section{
+    padding: 90px 24px 100px;
+    text-align:center;
+  }
+
+  .section-title{
+    font-family:'Fraunces', serif;
+    font-size: 32px;
+    margin-bottom: 12px;
+  }
+  .section-sub{
+    color: var(--muted);
+    font-size: 15px;
+    margin-bottom: 56px;
+  }
+
+  .details-grid{
+    display:grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    text-align:left;
+  }
+
+  .detail-card{
+    background: rgba(247,241,231,0.04);
+    border: 1px solid rgba(247,241,231,0.08);
+    border-radius: 16px;
+    padding: 32px 26px;
+  }
+
+  .detail-icon{
+    font-size: 28px;
+    margin-bottom: 18px;
+  }
+
+  .detail-label{
+    font-size: 12px;
+    text-transform:uppercase;
+    letter-spacing:0.12em;
+    color: var(--gold);
+    margin-bottom: 8px;
+  }
+
+  .detail-value{
+    font-size: 17px;
+    line-height:1.4;
+  }
+
+  .rsvp-section{
+    text-align:center;
+    padding: 0 24px 110px;
+  }
+
+  .rsvp{
+    display:inline-block;
+    background: linear-gradient(120deg, var(--gold), hsl(19, 55%, 78%));
+    color: hsl(19, 55%, 9%);
+    font-weight:700;
+    font-size: 16px;
+    padding: 18px 52px;
+    border-radius: 999px;
+    text-decoration:none;
+    letter-spacing:0.02em;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+    box-shadow: 0 14px 30px -10px rgba(232,138,94,0.5);
+  }
+  .rsvp:hover{ transform: translateY(-2px); box-shadow: 0 18px 36px -10px rgba(232,138,94,0.6); }
+
+  .promo{
+    text-align:center;
+    padding: 40px 24px 60px;
+    border-top: 1px dashed rgba(247,241,231,0.15);
+    color: var(--muted);
+    font-size: 13px;
+  }
+  .promo a{ color: var(--gold); text-decoration:none; font-weight:600; }
+
+  @media (max-width: 720px){
+    .details-grid{ grid-template-columns: 1fr; }
+    .count-block{ min-width: 74px; padding: 16px 18px; }
+    .count-number{ font-size: 30px; }
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    *{ animation: none !important; }
+  }
+</style>
+</head>
+<body>
+
+  <section class="hero">
+    <div class="eyebrow">Você está convidado(a)</div>
+    <h1>Aniversário de<span>joao definitivo</span></h1>
+    <p class="hero-subtitle">Um brinde a mais um ano de histórias boas — venha celebrar com a gente.</p>
+
+    <div class="countdown-wrap">
+      <div class="countdown-label">Faltam</div>
+      <div class="countdown" id="countdown">
+        <div class="count-block"><div class="count-number" id="cd-days">00</div><div class="count-unit">dias</div></div>
+        <div class="count-block"><div class="count-number" id="cd-hours">00</div><div class="count-unit">horas</div></div>
+        <div class="count-block"><div class="count-number" id="cd-minutes">00</div><div class="count-unit">min</div></div>
+        <div class="count-block"><div class="count-number" id="cd-seconds">00</div><div class="count-unit">seg</div></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="details-section">
+    <h2 class="section-title">Detalhes do encontro</h2>
+    <p class="section-sub">Guarde a data e venha celebrar com a gente.</p>
+
+    <div class="details-grid">
+      <div class="detail-card">
+        <div class="detail-icon">📅</div>
+        <div class="detail-label">Data</div>
+        <div class="detail-value">Sexta-feira, 7 de agosto de 2026</div>
+      </div>
+      <div class="detail-card">
+        <div class="detail-icon">🕖</div>
+        <div class="detail-label">Horário</div>
+        <div class="detail-value">A partir das 23:22</div>
+      </div>
+      <div class="detail-card">
+        <div class="detail-icon">📍</div>
+        <div class="detail-label">Local</div>
+        <div class="detail-value">definitov. ,2423</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="rsvp-section">
+    <a href="confirmar-joao-definitivo-1785791716087.html" class="rsvp">Confirmar presença</a>
+  </section>
+
+  <div class="promo">
+    Gostou deste modelo? Convites personalizados como este a partir de<br>
+    <a href="https://valleappsdev.github.io/convites-aniversario/formulario-pedido.html">R$ 19,90 — Fazer pedido</a>
+  </div>
+
+  <script>
+    const eventDate = new Date('2026-08-07T23:22:00-03:00').getTime();
+
+    function updateCountdown(){
+      const now = new Date().getTime();
+      const diff = eventDate - now;
+
+      const els = {
+        d: document.getElementById('cd-days'),
+        h: document.getElementById('cd-hours'),
+        m: document.getElementById('cd-minutes'),
+        s: document.getElementById('cd-seconds')
+      };
+
+      if(diff <= 0){
+        els.d.textContent = '00';
+        els.h.textContent = '00';
+        els.m.textContent = '00';
+        els.s.textContent = '00';
+        document.querySelector('.countdown-label').textContent = 'É hoje!';
+        return;
+      }
+
+      const days = Math.floor(diff / (1000*60*60*24));
+      const hours = Math.floor((diff % (1000*60*60*24)) / (1000*60*60));
+      const minutes = Math.floor((diff % (1000*60*60)) / (1000*60));
+      const seconds = Math.floor((diff % (1000*60)) / 1000);
+
+      els.d.textContent = String(days).padStart(2,'0');
+      els.h.textContent = String(hours).padStart(2,'0');
+      els.m.textContent = String(minutes).padStart(2,'0');
+      els.s.textContent = String(seconds).padStart(2,'0');
+    }
+
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+  </script>
+
+</body>
+</html>

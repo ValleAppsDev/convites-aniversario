@@ -473,10 +473,12 @@
   function paletteFromColor(hex){
     const [h, s] = hexToHsl(hex);
     const sat = Math.min(s, 55);
+    const blushSat = Math.min(s + 15, 70);
     return {
       accent: hex,
       bg: `hsl(${h}, ${sat}%, 9%)`,
-      card: `hsl(${h}, ${sat}%, 16%)`
+      card: `hsl(${h}, ${sat}%, 16%)`,
+      blush: `hsl(${h}, ${blushSat}%, 72%)`
     };
   }
 
@@ -486,7 +488,7 @@
     previewCard.style.background = `linear-gradient(160deg, ${palette.card}, ${palette.bg})`;
     previewCard.style.borderColor = palette.accent + '40';
     previewEyebrow.style.color = palette.accent;
-    previewNameSpan.style.color = palette.accent;
+    previewNameSpan.style.color = palette.blush;
     previewNameSpan.style.fontStyle = 'italic';
     previewBtn.style.background = palette.accent;
     previewBtn.style.color = palette.bg;

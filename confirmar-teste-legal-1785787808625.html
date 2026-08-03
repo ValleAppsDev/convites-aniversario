@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Confirmar presença — Aniversário de Teste Legal</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap');
+
+  :root{
+    --bg: hsl(0, 55%, 9%);
+    --bg-soft: hsl(0, 55%, 14%);
+    --card: hsl(0, 55%, 16%);
+    --gold: #D64545;
+    --blush: hsl(0, 70%, 72%);;
+    --cream: #F7EDEA;
+    --muted: #B9A8A6;
+  }
+
+  *{ box-sizing:border-box; margin:0; padding:0; }
+
+  body{
+    background:
+      radial-gradient(circle at 15% -10%, rgba(214,69,69,0.10), transparent 40%),
+      radial-gradient(circle at 85% 10%, rgba(214,69,69,0.10), transparent 45%),
+      var(--bg);
+    color: var(--cream);
+    font-family: 'Inter', sans-serif;
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding: 48px 20px;
+  }
+
+  .wrap{
+    width:100%;
+    max-width: 460px;
+  }
+
+  .eyebrow{
+    letter-spacing: 0.3em;
+    text-transform:uppercase;
+    font-size: 12px;
+    color: var(--gold);
+    text-align:center;
+    margin-bottom: 18px;
+  }
+
+  h1{
+    font-family:'Fraunces', serif;
+    font-weight:700;
+    font-size: clamp(28px, 6vw, 38px);
+    text-align:center;
+    line-height:1.15;
+    margin-bottom: 10px;
+  }
+  h1 span{ font-style:italic; color: var(--blush); }
+
+  .intro{
+    color: var(--muted);
+    text-align:center;
+    font-size: 14.5px;
+    max-width: 380px;
+    margin: 0 auto 36px;
+  }
+
+  form{
+    background: linear-gradient(160deg, var(--card), hsl(0, 55%, 9%));
+    border: 1px solid rgba(214,69,69,0.2);
+    border-radius: 20px;
+    padding: 32px 28px;
+    box-shadow: 0 30px 60px -25px rgba(0,0,0,0.6);
+  }
+
+  .field{
+    margin-bottom: 22px;
+  }
+
+  label{
+    display:block;
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    text-transform:uppercase;
+    color: var(--gold);
+    margin-bottom: 9px;
+  }
+
+  input[type="text"],
+  input[type="number"]{
+    width:100%;
+    background: rgba(247,241,231,0.05);
+    border: 1px solid rgba(247,241,231,0.15);
+    border-radius: 10px;
+    padding: 13px 14px;
+    color: var(--cream);
+    font-family:'Inter', sans-serif;
+    font-size: 15px;
+    outline:none;
+    transition: border-color 0.15s ease;
+    color-scheme: dark;
+  }
+  input:focus{ border-color: var(--gold); }
+  input::placeholder{ color: rgba(247,241,231,0.35); }
+
+  .field-hint{
+    font-size: 12px;
+    color: var(--muted);
+    margin-top: 7px;
+  }
+
+  .submit-btn{
+    width:100%;
+    background: linear-gradient(120deg, var(--gold), hsl(0, 55%, 78%));
+    color: hsl(0, 55%, 9%);
+    font-weight:700;
+    font-size: 16px;
+    padding: 16px 0;
+    border-radius: 999px;
+    border:none;
+    cursor:pointer;
+    letter-spacing:0.02em;
+    margin-top: 6px;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+    box-shadow: 0 14px 30px -12px rgba(214,69,69,0.5);
+  }
+  .submit-btn:hover{ transform: translateY(-2px); }
+
+  .note{
+    text-align:center;
+    font-size: 12.5px;
+    color: var(--muted);
+    margin-top: 18px;
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="eyebrow">Confirmação de presença</div>
+  <h1>Aniversário de<br><span>Teste Legal</span></h1>
+  <p class="intro">Preencha seus dados para confirmar. Sua mensagem será enviada direto para quem está organizando a festa.</p>
+
+  <form id="rsvpForm">
+    <div class="field">
+      <label for="guestName">Seu nome</label>
+      <input type="text" id="guestName" placeholder="Ex: Ana Souza" required>
+    </div>
+
+    <div class="field">
+      <label for="companions">Acompanhantes</label>
+      <input type="text" id="companions" placeholder="Nomes ou quantidade (deixe em branco se for sozinho(a))">
+      <div class="field-hint">Opcional</div>
+    </div>
+
+    <button type="submit" class="submit-btn">Confirmar presença</button>
+    <p class="note">Você será redirecionado(a) para o WhatsApp com a confirmação já pronta.</p>
+  </form>
+
+</div>
+
+<script>
+  const HOST_WHATSAPP_NUMBER = "5532988594878";
+  const EVENT_NAME = "Teste Legal";
+
+  document.getElementById('rsvpForm').addEventListener('submit', function(e){
+    e.preventDefault();
+
+    const guestName = document.getElementById('guestName').value.trim();
+    const companions = document.getElementById('companions').value.trim();
+
+    let message = `Olá, meu nome é ${guestName} e confirmei minha presença no aniversário de ${EVENT_NAME}.`;
+    if(companions){
+      message += `\nVou levar acompanhante(s): ${companions}.`;
+    }
+
+    const url = `https:
+    window.open(url, '_blank');
+  });
+</script>
+
+</body>
+</html>
